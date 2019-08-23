@@ -1,7 +1,7 @@
 var SerialPort = require('SerialPort');
 var url = require('url')
 
-var serialPort = new SerialPort("COM3", {
+var serialPort = new SerialPort("COM1", {
   baudRate: 115200
 });
 
@@ -40,7 +40,7 @@ function decodeMsg(reqUrl)
         break;
         case '/msg':
         var msgLen = intValue.length;
-        
+
         buff = [0xFE,0x04 + msgLen,0x93,0xCF,0x7D,0x5A];
 
         for (var i = 0; i < msgLen; i++) {

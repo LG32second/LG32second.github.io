@@ -8,21 +8,21 @@
 
     // 当插件退出时要做的事情
     ext._shutdown = function() {};
- 
+
     // 状态描述，用于提示插件的错误信息，比如不支持浏览器及版本等
     ext._getStatus = function() {
         var tmpResult = {status: 1, msg: '等待连接'};
-        
+
         if(currentStatus == 2)
         {
             tmpResult.status = 2;
             tmpResult.msg = '连接成功';
         }
-        
+
         return tmpResult;
     };
 
-    ext.put_up = function(){        
+    ext.put_up = function(){
         $.ajax({
             url:'http://localhost:8800/p',
             data:{
@@ -31,7 +31,7 @@
         });
     };
 
-    ext.put_down = function(){     
+    ext.put_down = function(){
         $.ajax({
             url:'http://localhost:8800/p',
             data:{
@@ -91,14 +91,14 @@
     ext.get_last_message = function(callback){
         $.ajax({
             url:'http://localhost:8800/m',
-            type: "get", 
+            type: "get",
             async:false,
             contentType:"text/plain",
             data:{
                 dt:24
             },
             success:function(msg){
-                currentStatus = 2; 
+                currentStatus = 2;
                 // info = msg;
                 // callback(info);
             }
@@ -129,9 +129,9 @@
             baudRates: [2400, 9600, 19200, 38400, 57600, 115200]
         },
         url:'https://github.com/zacSuo/ScratchSerial',
-        displayName: '机械臂功能测试'
+        displayName: 'scratch串口通讯测试'
     };
- 
+
     // 注册扩展插件
-    ScratchExtensions.register('机械臂小游戏', descriptor, ext);
+    ScratchExtensions.register('scratch串口通讯测试', descriptor, ext);
 })({});

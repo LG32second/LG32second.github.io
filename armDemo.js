@@ -155,5 +155,5 @@
     };
 
     // 注册扩展插件
-    ScratchExtensions.register('scratch串口通讯测试', descriptor, ext);
+    ScratchExtensions.register('scratch串口通讯测试v0.1', descriptor, ext);
 })({});

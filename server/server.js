@@ -11,7 +11,8 @@ function write2Serial(data){
 
 function decodeMsg(reqUrl)
 {
-    var buff = [0xFE,0x05,0x93,0xCF,0x7D,0x5A,0x00,0xFF];
+    // var buff = [0xFE,0x05,0x93,0xCF,0x7D,0x5A,0x00,0xFF];
+    var buff = [0xFF, 0x00, 0xFE]
     var urlInfo = url.parse(reqUrl,true);
     var urlPath = urlInfo.pathname;
     var intValue = urlInfo.query.dt;
@@ -19,23 +20,23 @@ function decodeMsg(reqUrl)
     {
         case '/p':
         if(intValue == 1){
-            buff[6] = 0xA2
+            buff[1] = 0xA2
         }else{
-            buff[6] = 0xA3
+            buff[1] = 0xA3
         }
         break;
         case '/m':
         if(intValue == 1){
-            buff[6] = 0xA4
+            buff[1] = 0xA4
         }else{
-            buff[6] = 0xA5
+            buff[1] = 0xA5
         }
         break;
         case '/h':
         if(intValue == 1){
-            buff[6] = 0xA6
+            buff[1] = 0xA6
         }else{
-            buff[6] = 0xA7
+            buff[1] = 0xA7
         }
         break;
         case '/msg':

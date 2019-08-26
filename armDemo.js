@@ -1,5 +1,4 @@
 
-// https://zacsuo.github.io/ScratchSerial/armDemo.js
 
 (function(ext) {
 

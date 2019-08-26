@@ -11,10 +11,10 @@ let baudRate = 115200;
  */
 server.createServer(function (req, res) {
     let buffSend = decodeMsg(req.url);
-    write2Serial(buffSend);
+    // write2Serial(buffSend);
     res.writeHead(200, {"Content-type": "text/plain"});
     res.write("hello");
-    res.end();
+    res.end("buffSend");
 }).listen(8800);
 
 function freshPort() {

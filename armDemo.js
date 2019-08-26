@@ -28,6 +28,7 @@
      * 刷新串口列表
      */
     ext.fresh_serialPort = function(){
+        console.log('开始刷新串口列表');
         $.ajax({
             url: 'http://localhost:8800/fresh_serialPort',
             data: {},
@@ -155,5 +156,5 @@
     };
 
     // 注册扩展插件
-    ScratchExtensions.register('scratch串口通讯测试v0.1', descriptor, ext);
+    ScratchExtensions.register('scratch串口通讯测试v0.1.1', descriptor, ext);
 })({});
